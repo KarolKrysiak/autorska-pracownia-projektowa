@@ -67,7 +67,7 @@ figure {
     margin: 0;
     padding: 0;
     height: 100%;
-    /* width: 100%; */
+    width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
@@ -76,8 +76,8 @@ figure {
 img {
     max-height: 100%; 
     max-width: 100%;
-    /* height: auto; */
-    /* width: auto; */
+    height: auto;
+    width: auto;
 }
 
 footer {

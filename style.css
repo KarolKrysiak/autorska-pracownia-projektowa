@@ -49,7 +49,7 @@ header {
     grid-template-columns: 2fr 1fr;
 }
 
-header h1 a img {
+header > h1 > a > img {
     height: 60px;
 }
 

@@ -7,11 +7,9 @@
     --margin: 10px;
 }
 
-h1, h2, p, a, ul, figure, img {
+h1, h2, p, a, ul {
     margin: 0;
     padding: 0; /* dotyczy list */
-    max-height: 100%; /* dotyczy img */
-    max-width: 100%; /* dotyczy img */
     font-size: var(--font-size);
     font-weight: normal;
     line-height: var(--line-height);
@@ -42,11 +40,7 @@ body {
     display: grid;
     grid-template-rows: auto calc(100% - 60px - calc(3 * var(--margin)) - var(--font-size)) auto;
     row-gap: var(--margin);
-}
-
-header {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-row-gap: var(--margin);
 }
 
 header > h1 > a > img {
@@ -54,6 +48,10 @@ header > h1 > a > img {
 }
 
 nav {
+    grid-row: 3;
+}
+
+nav > ul {
     display: none;
 }
 
@@ -66,18 +64,74 @@ main {
 }
 
 figure {
+    margin: 0;
+    padding: 0;
     height: 100%;
+    /* width: 100%; */
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
 }
 
-footer > ul > :nth-child(1),
-footer > ul > :nth-child(2) {
+img {
+    max-height: 100%; 
+    max-width: 100%;
+    /* height: auto; */
+    /* width: auto; */
+}
+
+footer {
     display: none;
 }
 
-@media (min-aspect-ratio: 1.75) {
+/* MEDIA DLA PROPORCJI BLISKICH KWADRATOWI */
+@media (aspect-ratio >= 0.95) and (aspect-ratio <= 1.70) {
+    :root {
+        --margin: 15px;
+    }
+
+    body {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto auto calc(100% - 60px - calc(3 * var(--margin)) - var(--font-size));
+        column-gap: 10px;
+    }
+
+    nav {
+        grid-column: 4;
+        grid-row: 1;
+        justify-self: end;
+    }
+
+    nav > ul {
+        display: block;
+    }
+
+    .button-menu {
+        display: none;
+    }
+
+    main {
+        display: block;
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+
+    figure {
+        grid-column: 2 / -1;
+        grid-row: 3 / 4;
+        justify-content: flex-end;
+    }
+
+    footer {
+        display: block;
+        grid-column: 1;
+        grid-row: 3;
+        align-self: end;
+    }
+}
+
+/* MEDIA DLA PROPORCJI POZIOMYCH */
+@media (min-aspect-ratio: 1.70) {
     :root {
         --margin: 20px;
     }
@@ -88,13 +142,16 @@ footer > ul > :nth-child(2) {
     }
     
     header {
-        grid-column: 1 / 4;
-        grid-row: 1;
+        grid-column: 1 / 3;
     }
 
     nav {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    nav > ul {
         display: block;
-        /* grid-column: 2; */
     }
 
     .button-menu {
@@ -104,7 +161,7 @@ footer > ul > :nth-child(2) {
     main {
         display: block;
         grid-column: 1 / 4;
-        grid-row: 2;
+        /* grid-row: 2; */
     }
     
     figure {
@@ -114,13 +171,9 @@ footer > ul > :nth-child(2) {
     }
     
     footer {
+        display: block;
         grid-column: 1 / 4;
         grid-row: 3;
         align-self: end;
-    }
-
-    footer > ul > :nth-child(1),
-    footer > ul > :nth-child(2) {
-        display: block;
     }
 }

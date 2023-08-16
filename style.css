@@ -44,12 +44,21 @@ body {
     row-gap: var(--margin);
 }
 
-header > h1 > img {
+header {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+header h1 a img {
     height: 60px;
 }
 
 nav {
     display: none;
+}
+
+.button-menu {
+    justify-self: end;
 }
 
 main {
@@ -81,6 +90,15 @@ footer > ul > :nth-child(2) {
     header {
         grid-column: 1 / 4;
         grid-row: 1;
+    }
+
+    nav {
+        display: block;
+        /* grid-column: 2; */
+    }
+
+    .button-menu {
+        display: none;
     }
     
     main {

@@ -1,0 +1,41 @@
+body {
+    /* grid-template-rows: auto 1fr; */
+}
+
+figure {
+    /* grid-row: 1 / 3; */
+}
+
+main {
+    grid-row: 3;
+    align-self: end;
+}
+
+main > ul > li {
+    margin-top: calc(0.5 * var(--margin));
+    /* line-height: calc(0.5 * var(--margin)); */
+    padding-left: calc((100vw - (2 * var(--margin))) / 6);
+    position: relative;
+}
+
+li ::before {
+    content: attr(data-content);
+    position: absolute;
+    left: 0;
+}
+
+/* MEDIA DLA PROPORCJI BLISKICH KWADRATOWI */
+@media (max-width: 1225px) {
+    figure {
+        /* grid-column: 3 / -1; */
+        grid-row: 2 / 2;
+    }
+
+    main > ul > li {
+        padding-left: calc((100vw - (2 * var(--margin))) / 4);
+    }
+
+    li ::before {
+        /* content: none; */
+    }
+}

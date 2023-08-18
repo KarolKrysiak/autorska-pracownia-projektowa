@@ -1,0 +1,46 @@
+body {
+    grid-template-rows: auto 1fr 50%;
+    /* row-gap: 0; */
+}
+
+main {
+    grid-column: 1 / 4;
+    display: grid;
+    row-gap: calc(2 * var(--margin));
+}
+
+figure {
+    display: none;
+    grid-column: -1;
+    grid-row: 3;
+    justify-content: center;
+    overflow: auto;
+}
+
+footer {
+    /* display: none; */
+}
+
+/* MEDIA DLA PROPORCJI PIONOWYCH */
+@media (max-width: 700px) {
+    body {
+        height: unset;
+        grid-template-rows: auto;
+        row-gap: calc(2 * var(--margin));
+    }
+
+    nav {
+        position: fixed;
+        bottom: var(--margin);
+    }
+
+    h2 {
+        display: none;
+    }
+
+    figure {
+        grid-column: 1;
+        width: 50%;
+    }
+
+}

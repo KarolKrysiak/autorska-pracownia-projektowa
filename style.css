@@ -56,6 +56,8 @@ header {
 
 .logo {
     height: var(--logo-size);
+    max-height: unset;
+    max-width: unset;
     /* height: 62px; */
     margin-top: 3px;
     margin-bottom: -3px;

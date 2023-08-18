@@ -1,0 +1,39 @@
+:root {
+    --font-size: 8vw;
+    --margin: 4vw;
+}
+
+::selection {
+    color: var(--menu-color);
+}
+
+html {
+    background-color: var(--menu-color);
+}
+
+body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+}
+
+nav,
+nav > ul, 
+.button-menu,
+footer {
+    display: unset;
+    grid-column: 1;
+    align-self: start;
+}
+
+nav {
+    grid-row: 3;
+    display: grid;
+    row-gap: var(--margin);
+}
+
+@media (min-aspect-ratio: 1/1) {
+    :root {
+        --font-size: 8vh;
+        --margin: 4vh;
+    }
+}

@@ -1,37 +1,44 @@
 @font-face {
     font-family: Arial-Nova;
     src:url(Arial-Nova.ttf);
-
 }
 
 :root {
     --background-color: #e6e6e6;
     --font-color: #101010;
     --selection-color: #696969;
+    --menu-color: #D8544D;
     --font-size: 20px;
+    --logo-size: calc(3.1 * var(--font-size));
     --line-height: 1.1;
     --margin: 20px;
 }
 
 h1, h2, p, a, ul {
     margin: 0;
-    padding: 0; /* for list */
+    padding: 0;
     font-size: var(--font-size);
     font-weight: normal;
     line-height: var(--line-height);
     color: var(--font-color);
     text-decoration: none;
-    list-style: none; /* for list */
+    list-style: none; 
+}
+
+::selection {
+    background-color: var(--selection-color);
+}
+
+a:hover {
+    font-style: italic;
 }
 
 html {
     height: calc(100% - 2 * var(--margin));
     margin: var(--margin);
     background-color: var(--background-color);
-    font-family: Arial-Nova;
+    /* font-family: Arial-Nova;  */
     font-family: Arial, Helvetica, sans-serif;
-    
-    /* transition: margin 0.5s ease; */
 }
 
 body {
@@ -44,11 +51,12 @@ body {
 }
 
 header {
-    grid-column: 1;
+    grid-column: 1 / 2;
 }
 
 .logo {
-    height: 62px;
+    height: var(--logo-size);
+    /* height: 62px; */
     margin-top: 3px;
     margin-bottom: -3px;
 }
@@ -91,7 +99,7 @@ footer {
 /* MEDIA DLA PROPORCJI BLISKICH KWADRATOWI */
 @media (max-width: 1225px) {
     :root {
-        --margin: 15px;
+        /* --margin: 15px; */
     }
 
     body {
@@ -101,7 +109,7 @@ footer {
 
     nav {
         grid-column: 4;
-        justify-self: right;
+        /* justify-self: right; */
     }
 
     main {
@@ -137,10 +145,6 @@ footer {
 
     body > * {
         grid-column: 1;
-    }
-
-    header {
-
     }
 
     nav {
